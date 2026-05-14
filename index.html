@@ -3,13 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lombard Medical — Wireframe Plataforma de Formaciones</title>
+<title>Wireframe Plataforma de Formaciones</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f0f0; color: #333; }
 
+  /* BRAND BAR */
+  .brand-bar { position: fixed; top: 0; left: 0; right: 0; height: 36px; background: #0d1117; display: flex; align-items: center; justify-content: center; gap: 12px; z-index: 200; font-size: 11px; color: #7d8590; }
+  .brand-bar .brand-name { color: #58a6ff; font-weight: 700; }
+  .brand-bar input { background: #161b22; border: 1px solid #30363d; color: #e6edf3; padding: 4px 10px; border-radius: 4px; font-size: 11px; width: 180px; font-family: monospace; }
+  .brand-bar .hint { font-size: 10px; color: #484f58; }
+
   /* NAV */
-  .nav-tabs { display: flex; background: #1a1a2e; padding: 0; position: sticky; top: 0; z-index: 100; }
+  .nav-tabs { display: flex; background: #1a1a2e; padding: 0; position: fixed; top: 36px; left: 0; right: 0; z-index: 100; }
   .nav-tabs button { background: none; border: none; color: #8888aa; padding: 14px 24px; font-size: 13px; cursor: pointer; border-bottom: 3px solid transparent; transition: all .2s; font-weight: 500; letter-spacing: .3px; }
   .nav-tabs button:hover { color: #ccc; }
   .nav-tabs button.active { color: #fff; border-bottom-color: #4a9eff; background: rgba(74,158,255,.08); }
@@ -18,7 +24,7 @@
   .nav-divider { width: 1px; background: #333; margin: 8px 0; }
 
   /* SCREEN */
-  .screen { display: none; min-height: calc(100vh - 47px); }
+  .screen { display: none; min-height: calc(100vh - 83px); margin-top: 83px; }
   .screen.active { display: block; }
 
   /* WIREFRAME STYLE */
@@ -34,7 +40,7 @@
   .container { max-width: 1200px; margin: 0 auto; padding: 30px 40px; }
 
   /* LOGIN */
-  .login-page { display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 47px); background: #f5f7fa; }
+  .login-page { display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 83px); background: #f5f7fa; }
   .login-card { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 50px 40px; width: 400px; text-align: center; box-shadow: 0 2px 20px rgba(0,0,0,.06); }
   .login-card h2 { margin-bottom: 8px; font-size: 22px; color: #333; }
   .login-card p { color: #888; font-size: 13px; margin-bottom: 30px; }
@@ -88,7 +94,7 @@
   .related-item .info span { font-size: 11px; color: #666; }
 
   /* ADMIN */
-  .admin-layout { display: flex; min-height: calc(100vh - 47px); }
+  .admin-layout { display: flex; min-height: calc(100vh - 83px); }
   .admin-sidebar { width: 240px; background: #1a1a2e; padding: 20px 0; flex-shrink: 0; }
   .admin-sidebar .admin-logo { padding: 0 20px 24px; font-size: 15px; color: #fff; font-weight: 700; border-bottom: 1px solid #252545; margin-bottom: 12px; }
   .admin-sidebar .admin-logo span { font-size: 10px; color: #4a9eff; display: block; font-weight: 400; margin-top: 2px; letter-spacing: .5px; text-transform: uppercase; }
@@ -108,7 +114,6 @@
   .stat-card .value { font-size: 28px; font-weight: 700; color: #333; }
   .stat-card .change { font-size: 11px; margin-top: 4px; }
   .stat-card .change.up { color: #27ae60; }
-  .stat-card .change.down { color: #e74c3c; }
 
   /* TABLE */
   .admin-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #e8e8e8; }
@@ -124,7 +129,7 @@
   .btn-primary { background: #4a9eff; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: default; }
   .btn-sm { padding: 6px 12px; font-size: 11px; border-radius: 6px; border: 1px solid #ddd; background: #fff; color: #666; cursor: default; margin-right: 4px; }
 
-  /* USERS TABLE */
+  /* USERS */
   .user-role { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
   .role-admin { background: #ede7f6; color: #4527a0; }
   .role-employee { background: #e3f2fd; color: #1565c0; }
@@ -141,11 +146,6 @@
   .group-card .group-members .avatar:first-child { margin-left: 0; }
   .group-card .group-actions { margin-top: 14px; display: flex; gap: 8px; }
 
-  /* ANNOTATION LAYER */
-  .annotation { position: fixed; bottom: 0; left: 0; right: 0; background: #fffde7; border-top: 2px solid #ffd54f; padding: 12px 24px; font-size: 12px; color: #666; display: flex; align-items: center; gap: 12px; z-index: 200; }
-  .annotation strong { color: #333; }
-  .annotation .dot { width: 8px; height: 8px; border-radius: 50%; background: #ffd54f; }
-
   /* LIVE SCHEDULE */
   .schedule-item { display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; }
   .schedule-date { text-align: center; min-width: 50px; }
@@ -156,9 +156,21 @@
   .schedule-info .time { font-size: 12px; color: #888; }
   .schedule-info .groups { margin-top: 6px; }
   .schedule-info .groups span { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: #f0f0f0; color: #666; margin-right: 4px; }
+
+  /* ANNOTATION */
+  .annotation { position: fixed; bottom: 0; left: 0; right: 0; background: #fffde7; border-top: 2px solid #ffd54f; padding: 12px 24px; font-size: 12px; color: #666; display: flex; align-items: center; gap: 12px; z-index: 200; }
+  .annotation strong { color: #333; }
+  .annotation .dot { width: 8px; height: 8px; border-radius: 50%; background: #ffd54f; }
 </style>
 </head>
 <body>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <span class="brand-name" id="brand-display"></span>
+  <span>Academy</span>
+  <div class="hint">Demo interactiva · nimbel.net</div>
+</div>
 
 <!-- NAVIGATION -->
 <nav class="nav-tabs">
@@ -182,9 +194,9 @@
   <div class="login-page">
     <div class="login-card">
       <div class="logo-placeholder">LOGO</div>
-      <h2>Lombard Academy</h2>
+      <h2 class="brand-title"></h2>
       <p>Plataforma de formaciones</p>
-      <div class="input-mock">email@lombardmedical.com</div>
+      <div class="input-mock brand-email-placeholder"></div>
       <div class="input-mock">********</div>
       <button class="btn-mock">Iniciar sesion</button>
       <div class="divider-text">o</div>
@@ -201,7 +213,7 @@
 <div class="screen" id="screen-catalog">
   <div class="wire-bg">
     <div class="wire-header">
-      <div class="wire-logo">Lombard <span>Academy</span></div>
+      <div class="wire-logo"><span class="brand-name-inline"></span> <span>Academy</span></div>
       <div class="wire-nav-items">
         <a href="#" class="active">Formaciones</a>
         <a href="#">En directo</a>
@@ -214,7 +226,7 @@
     </div>
     <div class="catalog-hero">
       <h1>Formaciones</h1>
-      <p>Accede a las formaciones y materiales de Lombard Medical</p>
+      <p class="brand-catalog-subtitle"></p>
       <div class="search-bar">
         <div class="search-input">Buscar formaciones...</div>
         <div class="search-btn">Buscar</div>
@@ -222,14 +234,11 @@
     </div>
     <div class="filter-bar">
       <div class="filter-chip active">Todas</div>
-      <div class="filter-chip">EVAR</div>
-      <div class="filter-chip">TEVAR</div>
-      <div class="filter-chip">FEVAR</div>
-      <div class="filter-chip">Producto: Minos</div>
-      <div class="filter-chip">Producto: Castor</div>
-      <div class="filter-chip">Producto: Hercules</div>
-      <div class="filter-chip">Procedimientos</div>
+      <div class="filter-chip">Producto A</div>
+      <div class="filter-chip">Producto B</div>
+      <div class="filter-chip">Producto C</div>
       <div class="filter-chip">Workshops</div>
+      <div class="filter-chip">Procedimientos</div>
     </div>
     <div class="container">
       <div class="video-grid">
@@ -239,7 +248,7 @@
             <div class="live-badge">EN DIRECTO</div>
           </div>
           <div class="video-info">
-            <h3>Workshop Castor: Implantacion en arco aortico</h3>
+            <h3>Workshop: Formacion avanzada de producto</h3>
             <div class="meta"><span>EN DIRECTO</span><span>42 viendo</span></div>
             <span class="access-badge badge-all">Todos</span>
           </div>
@@ -250,8 +259,8 @@
             <div class="duration">1:24:30</div>
           </div>
           <div class="video-info">
-            <h3>Minos Ultra-Low Profile: Casos clinicos complejos</h3>
-            <div class="meta"><span>Dr. Zimmermann</span><span>Hace 3 dias</span></div>
+            <h3>Casos de uso y buenas practicas</h3>
+            <div class="meta"><span>Equipo tecnico</span><span>Hace 3 dias</span></div>
             <span class="access-badge badge-employee">Empleados</span>
           </div>
         </div>
@@ -261,8 +270,8 @@
             <div class="duration">45:12</div>
           </div>
           <div class="video-info">
-            <h3>Hercules TEVAR: Guia de sizing y planificacion</h3>
-            <div class="meta"><span>Equipo Clinico</span><span>Hace 1 semana</span></div>
+            <h3>Guia de implementacion para partners</h3>
+            <div class="meta"><span>Equipo comercial</span><span>Hace 1 semana</span></div>
             <span class="access-badge badge-partner">Partners</span>
           </div>
         </div>
@@ -272,8 +281,8 @@
             <div class="duration">2:05:44</div>
           </div>
           <div class="video-info">
-            <h3>Meridian FEVAR: Primer caso mundial de relining</h3>
-            <div class="meta"><span>Dr. Peroulis</span><span>Hace 2 semanas</span></div>
+            <h3>Novedades de producto: sesion Q2 2026</h3>
+            <div class="meta"><span>Direccion</span><span>Hace 2 semanas</span></div>
             <span class="access-badge badge-employee">Empleados</span>
           </div>
         </div>
@@ -283,8 +292,8 @@
             <div class="duration">58:20</div>
           </div>
           <div class="video-info">
-            <h3>Aorfix: Tratamiento AAA con angulacion extrema</h3>
-            <div class="meta"><span>Prof. Hayes</span><span>Hace 3 semanas</span></div>
+            <h3>Onboarding: todo lo que necesitas saber</h3>
+            <div class="meta"><span>RRHH</span><span>Hace 3 semanas</span></div>
             <span class="access-badge badge-all">Todos</span>
           </div>
         </div>
@@ -294,8 +303,8 @@
             <div class="duration">1:12:00</div>
           </div>
           <div class="video-info">
-            <h3>Altura: Protocolo de implantacion paso a paso</h3>
-            <div class="meta"><span>Equipo R&D</span><span>Hace 1 mes</span></div>
+            <h3>Certificacion interna: nivel avanzado</h3>
+            <div class="meta"><span>Formacion</span><span>Hace 1 mes</span></div>
             <span class="access-badge badge-partner">Partners</span>
           </div>
         </div>
@@ -308,10 +317,8 @@
 <div class="screen" id="screen-player">
   <div class="player-page">
     <div class="wire-header" style="background:#111; border-color:#222;">
-      <div class="wire-logo" style="color:#888;">Lombard <span>Academy</span></div>
-      <div class="wire-nav-items">
-        <a href="#" style="color:#666;">Volver al catalogo</a>
-      </div>
+      <div class="wire-logo" style="color:#888;"><span class="brand-name-inline"></span> <span>Academy</span></div>
+      <div class="wire-nav-items"><a href="#" style="color:#666;">Volver al catalogo</a></div>
       <div class="wire-user">
         <span style="font-size:12px; color:#666;">Dr. Smith</span>
         <div class="wire-avatar" style="background:#333; color:#888;">DS</div>
@@ -321,21 +328,19 @@
       <div class="player-video">
         <div class="big-play">&#9654;</div>
         <div class="progress-bar"><div class="progress"></div></div>
-        <div style="position:absolute; top:16px; right:16px; color:rgba(255,255,255,.15); font-size:11px; font-style:italic;">dr.smith@lombardmedical.com</div>
+        <div class="brand-watermark" style="position:absolute; top:16px; right:16px; color:rgba(255,255,255,.15); font-size:11px; font-style:italic;"></div>
       </div>
       <div class="player-meta">
-        <h1>Minos Ultra-Low Profile: Casos clinicos complejos</h1>
+        <h1>Casos de uso y buenas practicas</h1>
         <div class="meta-row">
-          <span>Dr. Alexander Zimmermann</span>
+          <span>Equipo tecnico</span>
           <span>12 mayo 2026</span>
           <span>1h 24min</span>
-          <span>EVAR</span>
           <span>234 visualizaciones</span>
         </div>
         <div class="description">
-          Sesion formativa sobre casos clinicos complejos tratados con el stent graft Minos de perfil ultra bajo.
-          Se cubren anatomias desafiantes, seleccion de tamanio y tecnicas de implantacion avanzadas.
-          Material complementario disponible para descarga.
+          Sesion formativa sobre casos de uso avanzados. Se cubren escenarios complejos,
+          seleccion de configuracion y tecnicas avanzadas. Material complementario disponible.
         </div>
         <div style="display:flex; gap:10px; margin-top:12px;">
           <button class="btn-sm" style="color:#4a9eff; border-color:#4a9eff;">Descargar material adjunto</button>
@@ -346,15 +351,15 @@
         <h3>Formaciones relacionadas</h3>
         <div class="related-item">
           <div class="thumb"></div>
-          <div class="info"><h4>Minos: Guia de sizing</h4><span>45 min - Dr. Torresan</span></div>
+          <div class="info"><h4>Guia de configuracion</h4><span>45 min</span></div>
         </div>
         <div class="related-item">
           <div class="thumb"></div>
-          <div class="info"><h4>EVAR Workshop: Sesion practica</h4><span>2h 10min - Equipo Clinico</span></div>
+          <div class="info"><h4>Workshop: Sesion practica</h4><span>2h 10min</span></div>
         </div>
         <div class="related-item">
           <div class="thumb"></div>
-          <div class="info"><h4>Altura vs Minos: Criterios de seleccion</h4><span>38 min - Prof. Hayes</span></div>
+          <div class="info"><h4>Comparativa de productos</h4><span>38 min</span></div>
         </div>
       </div>
     </div>
@@ -365,7 +370,7 @@
 <div class="screen" id="screen-admin-dash">
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <div class="admin-logo">Lombard Academy <span>Panel de administracion</span></div>
+      <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
         <a href="#" class="active" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
@@ -382,38 +387,20 @@
       <h1>Dashboard</h1>
       <p class="subtitle">Resumen de actividad de la plataforma</p>
       <div class="stat-cards">
-        <div class="stat-card">
-          <div class="label">Videos publicados</div>
-          <div class="value">47</div>
-          <div class="change up">+5 este mes</div>
-        </div>
-        <div class="stat-card">
-          <div class="label">Visualizaciones (mes)</div>
-          <div class="value">1.284</div>
-          <div class="change up">+12% vs anterior</div>
-        </div>
-        <div class="stat-card">
-          <div class="label">Usuarios activos</div>
-          <div class="value">89</div>
-          <div class="change up">+3 nuevos</div>
-        </div>
-        <div class="stat-card">
-          <div class="label">Horas de contenido</div>
-          <div class="value">62h</div>
-          <div class="change up">+8h este mes</div>
-        </div>
+        <div class="stat-card"><div class="label">Videos publicados</div><div class="value">47</div><div class="change up">+5 este mes</div></div>
+        <div class="stat-card"><div class="label">Visualizaciones (mes)</div><div class="value">1.284</div><div class="change up">+12% vs anterior</div></div>
+        <div class="stat-card"><div class="label">Usuarios activos</div><div class="value">89</div><div class="change up">+3 nuevos</div></div>
+        <div class="stat-card"><div class="label">Horas de contenido</div><div class="value">62h</div><div class="change up">+8h este mes</div></div>
       </div>
-      <div class="table-header">
-        <h2>Actividad reciente</h2>
-      </div>
+      <div class="table-header"><h2>Actividad reciente</h2></div>
       <table class="admin-table">
         <thead><tr><th>Video</th><th>Vistas hoy</th><th>Ultima vista</th><th>Estado</th></tr></thead>
         <tbody>
-          <tr><td>Workshop Castor: Implantacion</td><td>42</td><td>Ahora (directo)</td><td><span class="status status-live">En directo</span></td></tr>
-          <tr><td>Minos: Casos clinicos complejos</td><td>18</td><td>Hace 2h</td><td><span class="status status-published">Publicado</span></td></tr>
-          <tr><td>Hercules: Guia de sizing</td><td>12</td><td>Hace 4h</td><td><span class="status status-published">Publicado</span></td></tr>
-          <tr><td>Meridian FEVAR: Relining</td><td>8</td><td>Hace 6h</td><td><span class="status status-published">Publicado</span></td></tr>
-          <tr><td>Nuevo procedimiento Aorfix (borrador)</td><td>0</td><td>—</td><td><span class="status status-draft">Borrador</span></td></tr>
+          <tr><td>Workshop: Formacion avanzada</td><td>42</td><td>Ahora (directo)</td><td><span class="status status-live">En directo</span></td></tr>
+          <tr><td>Casos de uso y buenas practicas</td><td>18</td><td>Hace 2h</td><td><span class="status status-published">Publicado</span></td></tr>
+          <tr><td>Guia de implementacion</td><td>12</td><td>Hace 4h</td><td><span class="status status-published">Publicado</span></td></tr>
+          <tr><td>Novedades Q2 2026</td><td>8</td><td>Hace 6h</td><td><span class="status status-published">Publicado</span></td></tr>
+          <tr><td>Nuevo procedimiento (borrador)</td><td>0</td><td>—</td><td><span class="status status-draft">Borrador</span></td></tr>
         </tbody>
       </table>
     </main>
@@ -424,7 +411,7 @@
 <div class="screen" id="screen-admin-videos">
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <div class="admin-logo">Lombard Academy <span>Panel de administracion</span></div>
+      <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
         <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
@@ -442,60 +429,20 @@
       <p class="subtitle">Administra el contenido de formaciones</p>
       <div class="table-header">
         <div style="display:flex; gap:10px;">
-          <div class="search-input" style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:10px 16px; font-size:12px; color:#aaa; width:250px;">Buscar videos...</div>
-          <div class="filter-chip" style="display:flex;align-items:center;">Todas las categorias &#9662;</div>
-          <div class="filter-chip" style="display:flex;align-items:center;">Todos los estados &#9662;</div>
+          <div style="background:#fff; border:1px solid #ddd; border-radius:8px; padding:10px 16px; font-size:12px; color:#aaa; width:250px;">Buscar videos...</div>
+          <div class="filter-chip" style="display:flex;align-items:center;">Categorias &#9662;</div>
+          <div class="filter-chip" style="display:flex;align-items:center;">Estado &#9662;</div>
         </div>
         <button class="btn-primary">+ Subir video</button>
       </div>
       <table class="admin-table">
         <thead><tr><th>Video</th><th>Categoria</th><th>Acceso</th><th>Vistas</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Workshop Castor: Implantacion</strong></td>
-            <td>TEVAR</td>
-            <td><span class="access-badge badge-all" style="margin:0;">Todos</span></td>
-            <td>342</td>
-            <td>12/05/2026</td>
-            <td><span class="status status-live">En directo</span></td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Minos: Casos clinicos complejos</strong></td>
-            <td>EVAR</td>
-            <td><span class="access-badge badge-employee" style="margin:0;">Empleados</span></td>
-            <td>234</td>
-            <td>10/05/2026</td>
-            <td><span class="status status-published">Publicado</span></td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Hercules: Guia de sizing</strong></td>
-            <td>TEVAR</td>
-            <td><span class="access-badge badge-partner" style="margin:0;">Partners</span></td>
-            <td>156</td>
-            <td>05/05/2026</td>
-            <td><span class="status status-published">Publicado</span></td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Meridian FEVAR: Primer relining mundial</strong></td>
-            <td>FEVAR</td>
-            <td><span class="access-badge badge-employee" style="margin:0;">Empleados</span></td>
-            <td>89</td>
-            <td>28/04/2026</td>
-            <td><span class="status status-published">Publicado</span></td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
-          <tr>
-            <td style="color:#aaa;"><strong>Nuevo procedimiento Aorfix</strong></td>
-            <td>EVAR</td>
-            <td><span style="font-size:11px;color:#aaa;">Sin asignar</span></td>
-            <td>—</td>
-            <td>11/05/2026</td>
-            <td><span class="status status-draft">Borrador</span></td>
-            <td><button class="btn-sm">Editar</button><button class="btn-sm">Publicar</button></td>
-          </tr>
+          <tr><td><strong>Workshop: Formacion avanzada</strong></td><td>Producto</td><td><span class="access-badge badge-all" style="margin:0;">Todos</span></td><td>342</td><td>12/05/2026</td><td><span class="status status-live">En directo</span></td><td><button class="btn-sm">Editar</button></td></tr>
+          <tr><td><strong>Casos de uso avanzados</strong></td><td>Tecnico</td><td><span class="access-badge badge-employee" style="margin:0;">Empleados</span></td><td>234</td><td>10/05/2026</td><td><span class="status status-published">Publicado</span></td><td><button class="btn-sm">Editar</button></td></tr>
+          <tr><td><strong>Guia de implementacion</strong></td><td>Partners</td><td><span class="access-badge badge-partner" style="margin:0;">Partners</span></td><td>156</td><td>05/05/2026</td><td><span class="status status-published">Publicado</span></td><td><button class="btn-sm">Editar</button></td></tr>
+          <tr><td><strong>Novedades Q2 2026</strong></td><td>General</td><td><span class="access-badge badge-employee" style="margin:0;">Empleados</span></td><td>89</td><td>28/04/2026</td><td><span class="status status-published">Publicado</span></td><td><button class="btn-sm">Editar</button></td></tr>
+          <tr><td style="color:#aaa;"><strong>Nuevo procedimiento</strong></td><td>Tecnico</td><td><span style="font-size:11px;color:#aaa;">Sin asignar</span></td><td>—</td><td>11/05/2026</td><td><span class="status status-draft">Borrador</span></td><td><button class="btn-sm">Editar</button><button class="btn-sm">Publicar</button></td></tr>
         </tbody>
       </table>
     </main>
@@ -506,7 +453,7 @@
 <div class="screen" id="screen-admin-users">
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <div class="admin-logo">Lombard Academy <span>Panel de administracion</span></div>
+      <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
         <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
@@ -532,54 +479,12 @@
       <table class="admin-table">
         <thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th>Grupo</th><th>Ultimo acceso</th><th>Acciones</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Sarah Johnson</strong></td>
-            <td>s.johnson@lombardmedical.com</td>
-            <td><span class="user-role role-admin">Admin</span></td>
-            <td>Marketing</td>
-            <td>Ahora</td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Dr. Alexander Zimmermann</strong></td>
-            <td>a.zimmermann@lombardmedical.com</td>
-            <td><span class="user-role role-employee">Empleado</span></td>
-            <td>Equipo Clinico</td>
-            <td>Hace 2h</td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Dr. Michail Peroulis</strong></td>
-            <td>m.peroulis@external.com</td>
-            <td><span class="user-role role-partner">Partner</span></td>
-            <td>KOLs Europa</td>
-            <td>Hace 1 dia</td>
-            <td><button class="btn-sm">Editar</button><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Revocar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Konstantinos Vasilas</strong></td>
-            <td>k.vasilas@mhoc.cy</td>
-            <td><span class="user-role role-partner">Partner</span></td>
-            <td>Distribuidores Chipre</td>
-            <td>Hace 3 dias</td>
-            <td><button class="btn-sm">Editar</button><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Revocar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Dr. Francesco Masi</strong></td>
-            <td>f.masi@hospital-teramo.it</td>
-            <td><span class="user-role role-external">Externo</span></td>
-            <td>Workshop Mayo</td>
-            <td>Hace 5 dias</td>
-            <td><button class="btn-sm">Editar</button><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Revocar</button></td>
-          </tr>
-          <tr>
-            <td><strong>Paul Hayes</strong></td>
-            <td>p.hayes@lombardmedical.com</td>
-            <td><span class="user-role role-employee">Empleado</span></td>
-            <td>Equipo Clinico</td>
-            <td>Hace 1 dia</td>
-            <td><button class="btn-sm">Editar</button></td>
-          </tr>
+          <tr><td><strong>Sarah Johnson</strong></td><td class="brand-email-domain">s.johnson@company.com</td><td><span class="user-role role-admin">Admin</span></td><td>Marketing</td><td>Ahora</td><td><button class="btn-sm">Editar</button></td></tr>
+          <tr><td><strong>Carlos Garcia</strong></td><td class="brand-email-domain">c.garcia@company.com</td><td><span class="user-role role-employee">Empleado</span></td><td>Equipo tecnico</td><td>Hace 2h</td><td><button class="btn-sm">Editar</button></td></tr>
+          <tr><td><strong>Dr. Marco Rossi</strong></td><td>m.rossi@external.com</td><td><span class="user-role role-partner">Partner</span></td><td>Partners Europa</td><td>Hace 1 dia</td><td><button class="btn-sm">Editar</button><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Revocar</button></td></tr>
+          <tr><td><strong>Anna Mueller</strong></td><td>a.mueller@partner.de</td><td><span class="user-role role-partner">Partner</span></td><td>Distribuidores DACH</td><td>Hace 3 dias</td><td><button class="btn-sm">Editar</button><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Revocar</button></td></tr>
+          <tr><td><strong>James Wilson</strong></td><td>j.wilson@consultant.co.uk</td><td><span class="user-role role-external">Externo</span></td><td>Workshop Mayo</td><td>Hace 5 dias</td><td><button class="btn-sm">Editar</button><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Revocar</button></td></tr>
+          <tr><td><strong>Laura Martinez</strong></td><td class="brand-email-domain">l.martinez@company.com</td><td><span class="user-role role-employee">Empleado</span></td><td>Equipo tecnico</td><td>Hace 1 dia</td><td><button class="btn-sm">Editar</button></td></tr>
         </tbody>
       </table>
     </main>
@@ -590,7 +495,7 @@
 <div class="screen" id="screen-admin-groups">
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <div class="admin-logo">Lombard Academy <span>Panel de administracion</span></div>
+      <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
         <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
@@ -606,56 +511,40 @@
     <main class="admin-content">
       <h1>Grupos de acceso</h1>
       <p class="subtitle">Organiza usuarios en grupos para controlar el acceso al contenido</p>
-      <div class="table-header">
-        <div></div>
-        <button class="btn-primary">+ Crear grupo</button>
-      </div>
+      <div class="table-header"><div></div><button class="btn-primary">+ Crear grupo</button></div>
       <div class="groups-grid">
         <div class="group-card">
-          <h3>Empleados Lombard</h3>
-          <div class="group-count">52 miembros &middot; Acceso automatico por dominio</div>
-          <div class="group-members">
-            <div class="avatar">SJ</div><div class="avatar">AZ</div><div class="avatar">PH</div><div class="avatar">JT</div><div class="avatar">+48</div>
-          </div>
+          <h3 class="brand-group-employees"></h3>
+          <div class="group-count">52 miembros · Acceso automatico por dominio</div>
+          <div class="group-members"><div class="avatar">SJ</div><div class="avatar">CG</div><div class="avatar">LM</div><div class="avatar">+49</div></div>
           <div class="group-actions"><button class="btn-sm">Gestionar</button><button class="btn-sm">Ver contenido</button></div>
         </div>
         <div class="group-card">
-          <h3>Equipo Clinico</h3>
-          <div class="group-count">8 miembros &middot; Manual</div>
-          <div class="group-members">
-            <div class="avatar">AZ</div><div class="avatar">PH</div><div class="avatar">JT</div><div class="avatar">+5</div>
-          </div>
+          <h3>Equipo tecnico</h3>
+          <div class="group-count">8 miembros · Manual</div>
+          <div class="group-members"><div class="avatar">CG</div><div class="avatar">LM</div><div class="avatar">+6</div></div>
           <div class="group-actions"><button class="btn-sm">Gestionar</button><button class="btn-sm">Ver contenido</button></div>
         </div>
         <div class="group-card">
-          <h3>KOLs Europa</h3>
-          <div class="group-count">14 miembros &middot; Invitacion</div>
-          <div class="group-members">
-            <div class="avatar">MP</div><div class="avatar">KV</div><div class="avatar">CG</div><div class="avatar">+11</div>
-          </div>
+          <h3>Partners Europa</h3>
+          <div class="group-count">14 miembros · Invitacion</div>
+          <div class="group-members"><div class="avatar">MR</div><div class="avatar">AM</div><div class="avatar">+12</div></div>
           <div class="group-actions"><button class="btn-sm">Gestionar</button><button class="btn-sm">Ver contenido</button></div>
         </div>
         <div class="group-card">
-          <h3>Distribuidores Chipre</h3>
-          <div class="group-count">3 miembros &middot; Invitacion</div>
-          <div class="group-members">
-            <div class="avatar">KV</div><div class="avatar">NP</div><div class="avatar">ES</div>
-          </div>
+          <h3>Distribuidores DACH</h3>
+          <div class="group-count">3 miembros · Invitacion</div>
+          <div class="group-members"><div class="avatar">AM</div><div class="avatar">TK</div><div class="avatar">FS</div></div>
           <div class="group-actions"><button class="btn-sm">Gestionar</button><button class="btn-sm">Ver contenido</button></div>
         </div>
         <div class="group-card">
           <h3>Workshop Mayo 2026</h3>
-          <div class="group-count">22 miembros &middot; Temporal (expira 30/06)</div>
-          <div class="group-members">
-            <div class="avatar">FM</div><div class="avatar">MM</div><div class="avatar">IP</div><div class="avatar">+19</div>
-          </div>
+          <div class="group-count">22 miembros · Temporal (expira 30/06)</div>
+          <div class="group-members"><div class="avatar">JW</div><div class="avatar">PL</div><div class="avatar">+20</div></div>
           <div class="group-actions"><button class="btn-sm">Gestionar</button><button class="btn-sm">Ver contenido</button></div>
         </div>
         <div class="group-card" style="border-style:dashed; display:flex; align-items:center; justify-content:center; min-height:160px; color:#aaa; cursor:pointer;">
-          <div style="text-align:center;">
-            <div style="font-size:28px; margin-bottom:8px;">+</div>
-            <div style="font-size:13px;">Crear nuevo grupo</div>
-          </div>
+          <div style="text-align:center;"><div style="font-size:28px; margin-bottom:8px;">+</div><div style="font-size:13px;">Crear nuevo grupo</div></div>
         </div>
       </div>
     </main>
@@ -666,7 +555,7 @@
 <div class="screen" id="screen-admin-live">
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <div class="admin-logo">Lombard Academy <span>Panel de administracion</span></div>
+      <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
         <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
@@ -682,53 +571,35 @@
     <main class="admin-content">
       <h1>Directos programados</h1>
       <p class="subtitle">Programa y gestiona las formaciones en directo</p>
-      <div class="table-header">
-        <div></div>
-        <button class="btn-primary">+ Programar directo</button>
-      </div>
-
+      <div class="table-header"><div></div><button class="btn-primary">+ Programar directo</button></div>
       <div style="margin-bottom:24px;">
         <h2 style="font-size:14px; color:#c62828; margin-bottom:12px;">&#9673; Ahora en directo</h2>
         <div class="schedule-item" style="border-color:#c62828; border-left:4px solid #c62828;">
           <div class="schedule-date"><div class="day">13</div><div class="month">MAY</div></div>
           <div class="schedule-info">
-            <h4>Workshop Castor: Implantacion en arco aortico</h4>
-            <div class="time">10:00 — 12:00 CET &middot; 42 viendo ahora</div>
+            <h4>Workshop: Formacion avanzada de producto</h4>
+            <div class="time">10:00 — 12:00 CET · 42 viendo ahora</div>
             <div class="groups"><span>Todos</span></div>
           </div>
           <div><button class="btn-sm" style="color:#c62828;border-color:#c62828;">Finalizar</button></div>
         </div>
       </div>
-
       <h2 style="font-size:14px; margin-bottom:12px;">Proximos</h2>
       <div class="schedule-item">
         <div class="schedule-date"><div class="day">20</div><div class="month">MAY</div></div>
-        <div class="schedule-info">
-          <h4>Minos: Nuevas indicaciones clinicas</h4>
-          <div class="time">14:00 — 15:30 CET</div>
-          <div class="groups"><span>Empleados</span><span>KOLs Europa</span></div>
-        </div>
+        <div class="schedule-info"><h4>Nuevas funcionalidades: sesion interna</h4><div class="time">14:00 — 15:30 CET</div><div class="groups"><span>Empleados</span><span>Partners Europa</span></div></div>
         <div><button class="btn-sm">Editar</button><button class="btn-sm">Copiar enlace</button></div>
       </div>
       <div class="schedule-item">
         <div class="schedule-date"><div class="day">03</div><div class="month">JUN</div></div>
-        <div class="schedule-info">
-          <h4>Hercules: Fenestration on-table workshop</h4>
-          <div class="time">09:00 — 13:00 CET</div>
-          <div class="groups"><span>Workshop Mayo</span><span>Equipo Clinico</span></div>
-        </div>
+        <div class="schedule-info"><h4>Workshop practico para distribuidores</h4><div class="time">09:00 — 13:00 CET</div><div class="groups"><span>Workshop Mayo</span><span>Equipo tecnico</span></div></div>
         <div><button class="btn-sm">Editar</button><button class="btn-sm">Copiar enlace</button></div>
       </div>
       <div class="schedule-item">
         <div class="schedule-date"><div class="day">15</div><div class="month">JUN</div></div>
-        <div class="schedule-info">
-          <h4>UNIVAS 2026: Sesion pre-congreso</h4>
-          <div class="time">16:00 — 17:00 CET</div>
-          <div class="groups"><span>Todos</span></div>
-        </div>
+        <div class="schedule-info"><h4>Sesion pre-congreso anual</h4><div class="time">16:00 — 17:00 CET</div><div class="groups"><span>Todos</span></div></div>
         <div><button class="btn-sm">Editar</button><button class="btn-sm">Copiar enlace</button></div>
       </div>
-
       <div style="margin-top:30px; padding:20px; background:#fff; border:1px solid #e8e8e8; border-radius:10px;">
         <h3 style="font-size:14px; margin-bottom:12px;">Configuracion del directo</h3>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:13px; color:#666;">
@@ -745,17 +616,71 @@
 <!-- ANNOTATION -->
 <div class="annotation">
   <div class="dot"></div>
-  <strong>WIREFRAME</strong> — Documento de trabajo para sesion interna Nimbel. No es diseno final. Los datos son ficticios.
+  <strong>DEMO</strong> — Prototipo conceptual. El diseno final y la funcionalidad pueden diferir del producto entregado.
 </div>
 
 <script>
+// === BRAND SYSTEM ===
+function getBrand() {
+  const params = new URLSearchParams(window.location.search);
+  // Case-insensitive: accept ?brand=, ?Brand=, ?BRAND=, etc.
+  for (const [key, value] of params.entries()) {
+    if (key.toLowerCase() === 'brand' && value.trim()) return value.trim();
+  }
+  // Also try path: /NombreMarca
+  const pathBrand = window.location.pathname.split('/').filter(Boolean).pop();
+  if (pathBrand && !pathBrand.includes('.')) return decodeURIComponent(pathBrand);
+  return 'Lombard';
+}
+
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function applyBrand() {
+  const brand = getBrand();
+  const domain = slugify(brand) + '.com';
+
+  // Brand display bar
+  document.getElementById('brand-display').textContent = brand;
+
+  // Title
+  document.title = brand + ' Academy — Wireframe';
+
+  // Login
+  document.querySelector('.brand-title').textContent = brand + ' Academy';
+  document.querySelector('.brand-email-placeholder').textContent = 'email@' + domain;
+
+  // Catalog subtitle
+  document.querySelector('.brand-catalog-subtitle').textContent = 'Accede a las formaciones y materiales de ' + brand;
+
+  // All brand name inlines (logos, sidebars)
+  document.querySelectorAll('.brand-name-inline').forEach(el => el.textContent = brand);
+
+  // Player watermark
+  document.querySelector('.brand-watermark').textContent = 'dr.smith@' + domain;
+
+  // Users table — internal emails
+  document.querySelectorAll('.brand-email-domain').forEach((el, i) => {
+    const prefixes = ['s.johnson', 'c.garcia', 'l.martinez'];
+    if (prefixes[i]) el.textContent = prefixes[i] + '@' + domain;
+  });
+
+  // Groups — employees group name
+  document.querySelector('.brand-group-employees').textContent = 'Empleados ' + brand;
+}
+
+// === NAVIGATION ===
 function show(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
   document.getElementById('tab-' + id).classList.add('active');
 }
+
+// Init
 show('login');
+applyBrand();
 </script>
 </body>
 </html>
