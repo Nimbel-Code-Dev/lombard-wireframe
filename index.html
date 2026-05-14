@@ -181,7 +181,6 @@
   </div>
   <div class="nav-divider"></div>
   <div class="nav-section" data-label="Admin">
-    <button onclick="show('admin-dash')" id="tab-admin-dash">Dashboard</button>
     <button onclick="show('admin-videos')" id="tab-admin-videos">Videos</button>
     <button onclick="show('admin-users')" id="tab-admin-users">Usuarios</button>
     <button onclick="show('admin-groups')" id="tab-admin-groups">Grupos</button>
@@ -344,7 +343,6 @@
         </div>
         <div style="display:flex; gap:10px; margin-top:12px;">
           <button class="btn-sm" style="color:#4a9eff; border-color:#4a9eff;">Descargar material adjunto</button>
-          <button class="btn-sm">Compartir (interno)</button>
         </div>
       </div>
       <div class="player-sidebar">
@@ -366,47 +364,6 @@
   </div>
 </div>
 
-<!-- ==================== ADMIN DASHBOARD ==================== -->
-<div class="screen" id="screen-admin-dash">
-  <div class="admin-layout">
-    <aside class="admin-sidebar">
-      <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
-      <div class="admin-menu">
-        <div class="section-label">General</div>
-        <a href="#" class="active" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
-        <a href="#" onclick="show('admin-videos')"><span class="icon">&#9654;</span> Videos</a>
-        <a href="#" onclick="show('admin-live')"><span class="icon">&#9673;</span> Directos</a>
-        <div class="section-label">Acceso</div>
-        <a href="#" onclick="show('admin-users')"><span class="icon">&#9786;</span> Usuarios</a>
-        <a href="#" onclick="show('admin-groups')"><span class="icon">&#9733;</span> Grupos</a>
-        <div class="section-label">Configuracion</div>
-        <a href="#"><span class="icon">&#9881;</span> Ajustes</a>
-      </div>
-    </aside>
-    <main class="admin-content">
-      <h1>Dashboard</h1>
-      <p class="subtitle">Resumen de actividad de la plataforma</p>
-      <div class="stat-cards">
-        <div class="stat-card"><div class="label">Videos publicados</div><div class="value">47</div><div class="change up">+5 este mes</div></div>
-        <div class="stat-card"><div class="label">Visualizaciones (mes)</div><div class="value">1.284</div><div class="change up">+12% vs anterior</div></div>
-        <div class="stat-card"><div class="label">Usuarios activos</div><div class="value">89</div><div class="change up">+3 nuevos</div></div>
-        <div class="stat-card"><div class="label">Horas de contenido</div><div class="value">62h</div><div class="change up">+8h este mes</div></div>
-      </div>
-      <div class="table-header"><h2>Actividad reciente</h2></div>
-      <table class="admin-table">
-        <thead><tr><th>Video</th><th>Vistas hoy</th><th>Ultima vista</th><th>Estado</th></tr></thead>
-        <tbody>
-          <tr><td>Workshop: Formacion avanzada</td><td>42</td><td>Ahora (directo)</td><td><span class="status status-live">En directo</span></td></tr>
-          <tr><td>Casos de uso y buenas practicas</td><td>18</td><td>Hace 2h</td><td><span class="status status-published">Publicado</span></td></tr>
-          <tr><td>Guia de implementacion</td><td>12</td><td>Hace 4h</td><td><span class="status status-published">Publicado</span></td></tr>
-          <tr><td>Novedades Q2 2026</td><td>8</td><td>Hace 6h</td><td><span class="status status-published">Publicado</span></td></tr>
-          <tr><td>Nuevo procedimiento (borrador)</td><td>0</td><td>—</td><td><span class="status status-draft">Borrador</span></td></tr>
-        </tbody>
-      </table>
-    </main>
-  </div>
-</div>
-
 <!-- ==================== ADMIN VIDEOS ==================== -->
 <div class="screen" id="screen-admin-videos">
   <div class="admin-layout">
@@ -414,7 +371,6 @@
       <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
-        <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
         <a href="#" class="active" onclick="show('admin-videos')"><span class="icon">&#9654;</span> Videos</a>
         <a href="#" onclick="show('admin-live')"><span class="icon">&#9673;</span> Directos</a>
         <div class="section-label">Acceso</div>
@@ -456,7 +412,6 @@
       <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
-        <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
         <a href="#" onclick="show('admin-videos')"><span class="icon">&#9654;</span> Videos</a>
         <a href="#" onclick="show('admin-live')"><span class="icon">&#9673;</span> Directos</a>
         <div class="section-label">Acceso</div>
@@ -498,7 +453,6 @@
       <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
-        <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
         <a href="#" onclick="show('admin-videos')"><span class="icon">&#9654;</span> Videos</a>
         <a href="#" onclick="show('admin-live')"><span class="icon">&#9673;</span> Directos</a>
         <div class="section-label">Acceso</div>
@@ -558,7 +512,6 @@
       <div class="admin-logo"><span class="brand-name-inline"></span> Academy <span>Panel de administracion</span></div>
       <div class="admin-menu">
         <div class="section-label">General</div>
-        <a href="#" onclick="show('admin-dash')"><span class="icon">&#9632;</span> Dashboard</a>
         <a href="#" onclick="show('admin-videos')"><span class="icon">&#9654;</span> Videos</a>
         <a href="#" class="active" onclick="show('admin-live')"><span class="icon">&#9673;</span> Directos</a>
         <div class="section-label">Acceso</div>
@@ -616,7 +569,7 @@
 <!-- ANNOTATION -->
 <div class="annotation">
   <div class="dot"></div>
-  <strong>DEMO</strong> — Prototipo conceptual. El diseno final y la funcionalidad pueden diferir del producto entregado.
+  <p class="demo-message"></p>
 </div>
 
 <script>
@@ -668,6 +621,7 @@ function applyBrand() {
 
   // Groups — employees group name
   document.querySelector('.brand-group-employees').textContent = 'Empleados ' + brand;
+  document.querySelector('.demo-message').textContent += 'DEMO — Prototipo conceptual. El diseno final y la funcionalidad diferirán dependiendo de las necesidades de ' + brand;
 }
 
 // === NAVIGATION ===
